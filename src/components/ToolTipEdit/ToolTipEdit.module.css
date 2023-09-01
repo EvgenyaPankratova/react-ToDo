@@ -1,0 +1,17 @@
+
+.tooltip_container{
+    z-index: 3;
+    position:relative;
+}
+
+.tooltip{
+    display: inline-block;
+    background-color: cadetblue;
+    font-size: 8px;
+    padding: 0.2rem;
+    position: absolute;
+    top: -195px;
+    right: 10px;
+    line-height: 10px;
+    width: 5rem;
+}

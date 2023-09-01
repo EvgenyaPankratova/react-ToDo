@@ -1,0 +1,17 @@
+
+.tooltip_container{
+    z-index: 3;
+   
+}
+
+.tooltip{
+    display: inline-block;
+    background-color: rgb(201, 245, 247);
+    font-size: 8px;
+    padding: 0.2rem;
+    position: absolute;
+    top: 190px;
+    right: 450px;
+    line-height: 10px;
+    width: 5rem;
+}

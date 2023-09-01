@@ -1,0 +1,10 @@
+
+.list__new__task{
+    font-size: 12px;
+    width: 80vh;
+    border-radius: 1rem;
+    border: 1px solid gray;
+    padding: 0.7rem 1.6rem 0.7rem 0.5rem;
+    text-align: left;
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,65 @@
+
+.task{
+    display: inline-block;
+    font-size: 12px;
+    width: 80vh;
+    border-radius: 1rem;
+    border: 1px solid gray;
+    padding: 0.7rem 1.6rem 0.7rem 0.5rem;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    position: relative;
+
+}
+
+.task input{
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.task_checked{
+    text-decoration: line-through;
+}
+
+.task_delete{
+    display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  right: 1rem;
+  top: 30%;
+  cursor: pointer;
+}
+
+.task_load{
+    display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  right: 3rem;
+  top: 30%;
+  cursor: pointer;
+}
+
+.task_edit{
+    display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  right: 5rem;
+  top: 30%;
+  cursor: pointer;
+}
+
+.task_input_img{
+    opacity: 0;
+    position: absolute;
+    overflow: hidden;
+    cursor: pointer;
+   
+}
+
+svg{
+    color:rgb(56, 120, 162);
+}
+
+svg:hover{
+  color:rgb(6, 40, 73);
+}
