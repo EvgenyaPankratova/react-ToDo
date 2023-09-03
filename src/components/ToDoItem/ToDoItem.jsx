@@ -21,6 +21,19 @@ const ToDoItem = ({allTasks,
     const [selected, setSelected] = useState([]);
     const [showToolTip, setShowToolTip] = useState(false);
 
+    const [userImage, setUserImage] = useState(undefined);
+    const [imageUrl, setImageUrl] = useState('');
+
+
+    useEffect(() => {
+        if (userImage) {
+            const photoUrl = URL.createObjectURL(userImage)
+            setImageUrl(photoUrl);
+        }  
+        console.log(imageUrl)
+    },[userImage])
+
+
     const onMouseEnterHandler = () => {
         setShowToolTip(true);
       };
@@ -66,8 +79,9 @@ const ToDoItem = ({allTasks,
              
             {tasks.map((task, index) => {
                 return  <div key={task.id}  className={classNames(!task.isActive  ? styles.task_checked : null, styles.task)}> <input  onChange={(e) => handleToggle(e, task, index)} type="checkbox"></input>{task.name}
+                <img className={styles.task_img} src={imageUrl} alt={imageUrl}/>
                 <h2 className={styles.task_edit} onClick={() => handleClick(task)} ><BsFillPencilFill/></h2>
-                <h2  className={styles.task_load}><input className={styles.task_input_img} id="image-input" type="file" accept=".png,.jpg,.jpeg,.gif"></input><BiSolidDownload/></h2>
+                <h2  className={styles.task_load}><input className={styles.task_input_img} id="image-input" type="file" accept=".png,.jpg,.jpeg,.gif" onChange={(e) => setUserImage(e.target.files[0])}></input><BiSolidDownload/></h2>
                 <h2 onMouseEnter={onMouseEnterHandler} onMouseLeave={onMouseLeaveHandler} className={styles.task_delete} onClick={() => handlerDelete(task)}>< RiDeleteBin2Fill/></h2> </div>
             })}
 

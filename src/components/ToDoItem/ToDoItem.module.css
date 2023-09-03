@@ -56,6 +56,17 @@
    
 }
 
+.task_img{
+  width: 1.2rem;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  right: 8rem;
+  top: 20%;
+  cursor: pointer;
+}
+
 svg{
     color:rgb(56, 120, 162);
 }
