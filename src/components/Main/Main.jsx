@@ -15,14 +15,20 @@ const Main = () => {
     {name: 'Создать проект',
     id: Math.random() * 100,
     isActive: true,
+    haveImg: false,
+    fullImage: false
 },
     {name: 'Выпить кофе',
     id: Math.random() * 100,
     isActive: true,
+    haveImg: false,
+    fullImage: false
 },
     {name: 'Закончить проект',
     id: Math.random() * 100,
     isActive: true,
+    haveImg: false,
+    fullImage: false
     }
 ]);
 

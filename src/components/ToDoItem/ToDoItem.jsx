@@ -5,8 +5,7 @@ import classNames from "classnames";
 import { RiDeleteBin2Fill } from 'react-icons/ri';
 import { BiSolidDownload } from 'react-icons/bi';
 import { BsFillPencilFill } from 'react-icons/bs';
-import ToolTipEdit from '../ToolTipEdit/ToolTipEdit';
-import ToolTipDelete from "../ToolTipDelete/ToolTipDelete";
+import ToolTip from "../ToolTip/ToolTip";
 
 const ToDoItem = ({allTasks,
      setAllTasks, 
@@ -20,9 +19,11 @@ const ToDoItem = ({allTasks,
    
     const [selected, setSelected] = useState([]);
     const [showToolTip, setShowToolTip] = useState(false);
+    const [toolTipId, setToolTipId] = useState('');
 
     const [userImage, setUserImage] = useState(undefined);
     const [imageUrl, setImageUrl] = useState('');
+    // const [fullImage, setSmallImage] = useState(false);
 
 
     useEffect(() => {
@@ -34,7 +35,8 @@ const ToDoItem = ({allTasks,
     },[userImage])
 
 
-    const onMouseEnterHandler = () => {
+    const onMouseEnterHandler = (e) => {
+        setToolTipId(e.target.id);
         setShowToolTip(true);
       };
     
@@ -71,6 +73,20 @@ const ToDoItem = ({allTasks,
         }))
       }
 
+    const handleImage = (e, elem) => {
+        setUserImage(e.target.files[0])
+
+        setAllTasks((prev) => prev.map(item => {
+            return elem.id === item.id ? {...item, haveImage : !item.haveImage} : item 
+        }))
+    }
+
+    const toggleImage = (e, elem) => {
+        setAllTasks((prev) => prev.map(item => {
+            return elem.id === item.id ? {...item, fullImage : !item.fullImage} : item 
+        }))
+    }
+
    
     return (
         (tasks.length === 0) ? (<div>Этот список пуст</div>) :
@@ -79,13 +95,13 @@ const ToDoItem = ({allTasks,
              
             {tasks.map((task, index) => {
                 return  <div key={task.id}  className={classNames(!task.isActive  ? styles.task_checked : null, styles.task)}> <input  onChange={(e) => handleToggle(e, task, index)} type="checkbox"></input>{task.name}
-                <img className={styles.task_img} src={imageUrl} alt={imageUrl}/>
-                <h2 className={styles.task_edit} onClick={() => handleClick(task)} ><BsFillPencilFill/></h2>
-                <h2  className={styles.task_load}><input className={styles.task_input_img} id="image-input" type="file" accept=".png,.jpg,.jpeg,.gif" onChange={(e) => setUserImage(e.target.files[0])}></input><BiSolidDownload/></h2>
-                <h2 onMouseEnter={onMouseEnterHandler} onMouseLeave={onMouseLeaveHandler} className={styles.task_delete} onClick={() => handlerDelete(task)}>< RiDeleteBin2Fill/></h2> </div>
+                {task.haveImage && <img onClick={(e) => toggleImage(e, task)} className={task.fullImage ? styles.task_img_full : styles.task_img} src={imageUrl} alt={imageUrl}/>}
+                <h2 id="edit"  onMouseEnter={onMouseEnterHandler} onMouseLeave={onMouseLeaveHandler} className={styles.task_edit} onClick={() => handleClick(task)} ><BsFillPencilFill/></h2>
+                <h2 id="load"  onMouseEnter={onMouseEnterHandler} onMouseLeave={onMouseLeaveHandler}  className={styles.task_load}><input className={styles.task_input_img} id="image-input" type="file" accept=".png,.jpg,.jpeg,.gif" onChange={(e) => handleImage(e, task)}></input><BiSolidDownload/></h2>
+                <h2 id="del" onMouseEnter={onMouseEnterHandler} onMouseLeave={onMouseLeaveHandler} className={styles.task_delete} onClick={() => handlerDelete(task)}>< RiDeleteBin2Fill/></h2> </div>
             })}
 
-{showToolTip && <ToolTipDelete/>}
+{showToolTip && <ToolTip toolTipId={toolTipId}/>}
             
         </div>  )
         

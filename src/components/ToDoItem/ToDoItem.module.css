@@ -67,6 +67,21 @@
   cursor: pointer;
 }
 
+.task_img_full{
+  width: 18rem;
+  height: auto;
+  z-index: 3;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -9rem;
+  margin-top: -150px;
+  border: 2px solid rgb(230, 232, 215);
+  border-radius: 5px;
+  background-color: rgb(229, 233, 237);
+  cursor: pointer;
+}
+
 svg{
     color:rgb(56, 120, 162);
 }
