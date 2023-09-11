@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-ToDo/static/css/main.c87987ed.css",
+    "main.js": "/react-ToDo/static/js/main.a06681c3.js",
+    "static/media/1674325724_foni-club-p-fon-nebo-s-oblakami-20.jpg": "/react-ToDo/static/media/1674325724_foni-club-p-fon-nebo-s-oblakami-20.f81dc6eacc80e9b52d6f.jpg",
+    "index.html": "/react-ToDo/index.html",
+    "main.c87987ed.css.map": "/react-ToDo/static/css/main.c87987ed.css.map",
+    "main.a06681c3.js.map": "/react-ToDo/static/js/main.a06681c3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c87987ed.css",
+    "static/js/main.a06681c3.js"
+  ]
+}
