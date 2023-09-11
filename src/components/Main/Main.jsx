@@ -16,19 +16,40 @@ const Main = () => {
     id: Math.random() * 100,
     isActive: true,
     haveImg: false,
-    fullImage: false
+    fullImage: false,
+    time: new Date().toLocaleString("ru", {
+        year: "2-digit",
+        month: "2-digit",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      })
 },
     {name: 'Выпить кофе',
     id: Math.random() * 100,
     isActive: true,
     haveImg: false,
-    fullImage: false
+    fullImage: false,
+    time: new Date().toLocaleString("ru", {
+        year: "2-digit",
+        month: "2-digit",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      })
 },
     {name: 'Закончить проект',
     id: Math.random() * 100,
     isActive: true,
     haveImg: false,
-    fullImage: false
+    fullImage: false,
+    time: new Date().toLocaleString("ru", {
+        year: "2-digit",
+        month: "2-digit",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      })
     }
 ]);
 
@@ -43,7 +64,14 @@ const Main = () => {
                 ...prev, 
                 {name: newTask,
                 id: Math.random() * 100,
-                isActive: true
+                isActive: true,
+                time: new Date().toLocaleString("ru", {
+                    year: "2-digit",
+                    month: "2-digit",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "numeric",
+                  })
                 }    
             ]});
     }
