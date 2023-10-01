@@ -1,6 +1,7 @@
-import Main from "./components/Main/Main"
+import React from 'react';
+import Main from "./components/Main/Main.tsx"
 
-function App() {
+function App(){
   return (
     <div className="container">
       <Main/>
@@ -9,3 +10,4 @@ function App() {
 }
 
 export default App;
+

@@ -1,15 +1,25 @@
 import styles from "./Main.module.css";
-import ToDoList from "../ToDoList/ToDoList"
-import { useState } from "react";
+import ToDoList from "../ToDoList/ToDoList.tsx"
+import { FC, useState } from "react";
 import classNames from "classnames";
+import React from "react";
 
-const Main = () => {
+export interface ITask {
+    name: string,
+    id: number,
+    isActive: boolean,
+    haveImg?: boolean,
+    fullImage?: boolean,
+    time: string
+}
 
-    const [newTask, setNewTask] = useState('');
+const Main: FC = () => {
+
+    const [newTask, setNewTask] = useState<string>('');
     const [activeTasks, setActiveTasks] = useState([]);
     const [finishedTasks, setFinishedTasks] = useState([]);
-    const [activeButton, setActiveButton] = useState(false);
-    const [finishedButton, setFinishedButton] = useState(false);
+    const [activeButton, setActiveButton] = useState<boolean>(false);
+    const [finishedButton, setFinishedButton] = useState<boolean>(false);
     const [allTasks, setAllTasks] = 
     useState([
     {name: 'Создать проект',
@@ -53,13 +63,12 @@ const Main = () => {
     }
 ]);
 
-    const createnewTaskOnChange = (newTask) => {
+    const createnewTaskOnChange = (newTask: string) => {
         setNewTask(newTask);
-
     }
 
-    const createNewTaskOnSubmit = (newTask) => {
-        setAllTasks((prev) => {
+    const createNewTaskOnSubmit = (newTask: string) => {
+        setAllTasks((prev: any) => {
            return [
                 ...prev, 
                 {name: newTask,

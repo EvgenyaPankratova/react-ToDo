@@ -14,7 +14,7 @@
   }
 
   .main_block{
-        width: 45%;
+        width: 45vw;
         height: auto;
         border-radius: 1rem;
         padding: 2rem;
@@ -50,4 +50,15 @@
     background-color:rgb(56, 120, 162);
     border: 1px solid rgb(56, 120, 162);
     color: white;
+  }
+
+  @media (min-width: 900px) and (max-width: 1250px) {
+    .main_block{
+      width: 60%;
+    }
+  }
+  @media (min-width: 700px) and (max-width: 899px) {
+    .main_block{
+      width: 70%;
+    }
   }
